@@ -206,8 +206,339 @@ footer{
     background:linear-gradient(90deg,rgba(4,9,14,.82),rgba(4,9,14,.52));
   }
 }
+/* BOTÃO PRINCIPAL */
+button.btn{
+  font-family:inherit;
+  font-size:16px;
+  cursor:pointer;
+}
+
+
+/* FUNDO DA MODAL */
+.modal-contato{
+  position:fixed;
+  inset:0;
+  background:rgba(3,8,15,.82);
+  backdrop-filter:blur(7px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.25s ease;
+
+  z-index:9999;
+
+  padding:20px;
+}
+
+.modal-contato.ativa{
+  opacity:1;
+  visibility:visible;
+}
+
+
+/* CAIXA PRINCIPAL */
+.modal-conteudo{
+  position:relative;
+
+  width:min(520px,100%);
+
+  background:#0d1726;
+
+  border:1px solid #26344b;
+  border-radius:20px;
+
+  padding:35px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55);
+
+  transform:translateY(25px) scale(.97);
+
+  transition:.25s ease;
+}
+
+.modal-contato.ativa .modal-conteudo{
+  transform:translateY(0) scale(1);
+}
+
+
+/* BOTÃO X */
+.modal-fechar{
+  position:absolute;
+
+  right:18px;
+  top:14px;
+
+  width:38px;
+  height:38px;
+
+  border:1px solid #26344b;
+  border-radius:50%;
+
+  background:#121c2e;
+
+  color:#fff;
+
+  font-size:26px;
+
+  cursor:pointer;
+}
+
+.modal-fechar:hover{
+  border-color:#f3b41b;
+  color:#f3b41b;
+}
+
+
+/* TAG */
+.modal-tag{
+  display:inline-block;
+
+  color:#f3b41b;
+
+  border:1px solid #f3b41b;
+
+  border-radius:999px;
+
+  padding:5px 11px;
+
+  font-size:12px;
+  font-weight:bold;
+
+  margin-bottom:15px;
+}
+
+
+/* TÍTULO */
+.modal-conteudo h2{
+  margin:0 0 5px;
+
+  font-size:32px;
+}
+
+.modal-subtitulo{
+  margin:0 0 25px;
+
+  color:#aeb9ca;
+}
+
+
+/* OPÇÕES */
+.modal-opcoes{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.contato-opcao{
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+  padding:16px;
+
+  text-decoration:none;
+
+  background:#121c2e;
+
+  border:1px solid #26344b;
+
+  border-radius:13px;
+
+  transition:.2s;
+}
+
+.contato-opcao:hover{
+  border-color:#f3b41b;
+
+  background:#162237;
+
+  transform:translateY(-2px);
+}
+
+
+/* ÍCONE */
+.contato-icone{
+  width:43px;
+  height:43px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-shrink:0;
+
+  border-radius:10px;
+
+  background:#f3b41b;
+
+  color:#111;
+
+  font-size:20px;
+}
+
+
+/* TEXTO */
+.contato-opcao div{
+  display:flex;
+  flex-direction:column;
+
+  flex:1;
+}
+
+.contato-opcao strong{
+  color:#fff;
+
+  font-size:16px;
+}
+
+.contato-opcao div span{
+  color:#aeb9ca;
+
+  font-size:13px;
+}
+
+
+/* SETA */
+.seta{
+  color:#f3b41b;
+
+  font-size:30px;
+
+  line-height:1;
+}
+
+
+/* CELULAR */
+@media(max-width:600px){
+
+  .modal-conteudo{
+    padding:28px 18px 20px;
+  }
+
+  .modal-conteudo h2{
+    font-size:27px;
+  }
+
+  .contato-opcao{
+    padding:14px;
+  }
+
+}
 </style>
 </head>
+<!-- MODAL DE CONTATO -->
+<div id="modalContato" class="modal-contato" onclick="fecharFora(event)">
+  <div class="modal-conteudo">
+
+    <button class="modal-fechar" onclick="fecharContato()">×</button>
+
+    <span class="modal-tag">FALE CONOSCO</span>
+
+    <h2>Entrar em Contato</h2>
+
+    <p class="modal-subtitulo">
+      Escolha o setor com o qual deseja falar.
+    </p>
+
+    <div class="modal-opcoes">
+
+      <a href="https://wa.me/5565996492011"
+         target="_blank"
+         class="contato-opcao">
+
+        <span class="contato-icone">💬</span>
+
+        <div>
+          <strong>Gestão de Obras</strong>
+          <span>José Melo • (65) 99649-2011</span>
+        </div>
+
+        <span class="seta">›</span>
+      </a>
+
+
+      <a href="https://wa.me/5565996605410"
+         target="_blank"
+         class="contato-opcao">
+
+        <span class="contato-icone">💬</span>
+
+        <div>
+          <strong>Financeiro</strong>
+          <span>Rogério S. • (65) 99660-5410</span>
+        </div>
+
+        <span class="seta">›</span>
+      </a>
+
+
+      <a href="https://wa.me/5593992191064"
+         target="_blank"
+         class="contato-opcao">
+
+        <span class="contato-icone">💬</span>
+
+        <div>
+          <strong>Engenheiro Civil</strong>
+          <span>Lucas P. • (93) 99219-1064</span>
+        </div>
+
+        <span class="seta">›</span>
+      </a>
+
+
+      <a href="mailto:construtorasaframt@gmail.com"
+         class="contato-opcao">
+
+        <span class="contato-icone">✉</span>
+
+        <div>
+          <strong>E-mail</strong>
+          <span>construtorasaframt@gmail.com</span>
+        </div>
+
+        <span class="seta">›</span>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+function abrirContato(){
+  document.getElementById("modalContato").classList.add("ativa");
+  document.body.style.overflow = "hidden";
+}
+
+function fecharContato(){
+  document.getElementById("modalContato").classList.remove("ativa");
+  document.body.style.overflow = "";
+}
+
+function fecharFora(event){
+  if(event.target.id === "modalContato"){
+    fecharContato();
+  }
+}
+
+document.addEventListener("keydown", function(event){
+  if(event.key === "Escape"){
+    fecharContato();
+  }
+});
+</script>
 <body>
 
 <header class="hero photo-section">
@@ -216,12 +547,7 @@ footer{
     <h1>Construtora <span>Safra</span></h1>
     <p>Experiência em obras de silos e armazéns, bases para silos, drenagem e infraestrutura.</p>
     <div class="btns">
-  <a class="btn primary" href="https://wa.me/5565996492011" target="_blank">💬 Gestão de Obras — José Melo</a>
-
-  <a class="btn primary" href="https://wa.me/5565996605410" target="_blank">💬 Financeiro — Rogério S.</a>
-
-  <a class="btn primary" href="https://wa.me/5593992191064" target="_blank">💬 Engenheiro Civil — Lucas P.</a>
-      <a class="btn" href="mailto:construtorasaframt@gmail.com">✉ Entrar em contato</a>
+      <button class="btn primary" onclick="abrirContato()">💬 Entrar em Contato</button>
   </div>
 </header>
 
